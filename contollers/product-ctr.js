@@ -32,4 +32,14 @@ const get_all = async(req,res)=>{
     data = await tblInstance.findAll({});
     res.status(200).json(data);
 }
-module.exports={create,get_all}
+const get_one = async(req,res)=>{
+    id = req.params.id
+    data = await tblInstance.findOne({where:{id:id}})
+    res.status(200).json(data)
+}
+const delete_one = async(req,res)=>{
+    id=req.params.id
+    data = await tblInstance.destroy({where:{id:id}})
+    res.status(200).json("deleted")
+}
+module.exports={create,get_all,get_one,delete_one}
