@@ -28,4 +28,8 @@ const create = async(req,res)=>{
     final = await tblInstance.create(data);
     res.status(200).json("done")
 }
-module.exports=create
+const get_all = async(req,res)=>{
+    data = await tblInstance.findAll({});
+    res.status(200).json(data);
+}
+module.exports={create,get_all}
