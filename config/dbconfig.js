@@ -1,7 +1,9 @@
-module.exports={
-    HOST:'loacalhost:3306',
-    USER:'root',
-    PASSWORD:'mysqldb123',
-    DB:'test_db',
+const mysql = require('mysql2')
+const db =mysql.createPool({
+    host:'loacalhost',
+    user:'root',
+    password:'mysqldb123',
+    database:'test_db',
     dialect:'mysql'
-}
+})
+module.exports=db.promise()
