@@ -1,19 +1,6 @@
 const Order = require('../models/order')
 const {Sequelize,Op} = require('sequelize')
-const sequelize = new Sequelize(
-    'test_db',
-    'root',
-    'mysqldb123',{
-    host:'localhost',
-    dialect:'mysql'
-    } 
-    )
-    sequelize.authenticate().then(()=>{
-    console.log("db conneceted");
-    })
-    .catch(error=>{
-    console.log(error);
-    })
+const sequelize = require('../models/sqlize')
 const add_ord = async(req,res)=>{
     try {
      insert = await Order.create({order_name:req.body.order_name,order_amt:req.body.order_amount})

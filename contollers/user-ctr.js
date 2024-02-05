@@ -1,20 +1,6 @@
 const User = require('../models/user')
 const {Sequelize, DataTypes, Model} = require('sequelize')
-const sequelize = new Sequelize(
-    'test_db',
-    'root',
-    'mysqldb123',{
-    host:'localhost',
-    dialect:'mysql'
-    } 
-    )
-    sequelize.authenticate().then(()=>{
-    console.log("db conneceted");
-    })
-    .catch(error=>{
-    console.log(error);
-    })
-
+const sequelize = require('../models/sqlize')
 
 const add_user = async(req,res)=>{
     try {

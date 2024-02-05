@@ -2,20 +2,7 @@ const myTbl= require('../models/mytbls')
 const User = require('../models/user')
 const Order = require('../models/order')
 const {Sequelize, DataTypes} = require('sequelize')
-const sequelize = new Sequelize(
-    'test_db',
-    'root',
-    'mysqldb123',{
-    host:'localhost',
-    dialect:'mysql'
-    } 
-    )
-    sequelize.authenticate().then(()=>{
-    console.log("db conneceted");
-    })
-    .catch(error=>{
-    console.log(error);
-    })
+const sequelize = require('../models/sqlize')
 const tblInstance = myTbl(sequelize, DataTypes)
 Order.sync()
 

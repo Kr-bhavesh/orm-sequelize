@@ -8,4 +8,10 @@ const sequelize = new Sequelize(
    dialect:'mysql',
  }
 );
+sequelize.authenticate().then(()=>{
+  console.log("db conneceted");
+  })
+  .catch(error=>{
+  console.log(error);
+  })
 module.exports=sequelize;
